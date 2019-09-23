@@ -42,6 +42,12 @@ namespace _4.UART
 
         private static void DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            if(sender is SerialPort)
+            {
+                SerialPort serial = sender as SerialPort;
+                string read = serial.ReadLine();
+                Console.WriteLine(read);
+            }
             Console.WriteLine($"Received: {e.EventType.ToString()}");
         }
     }
