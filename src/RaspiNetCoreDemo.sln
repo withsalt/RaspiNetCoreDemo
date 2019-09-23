@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.I2C", "3.I2C\3.I2C.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.UART", "4.UART\4.UART.csproj", "{846194DE-FEFE-4806-915D-05D89902034C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.SPI", "5.SPI\5.SPI.csproj", "{6C455C71-7FA6-46C4-9366-47CC926A3F9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.PWM", "6.PWM\6.PWM.csproj", "{EE0C30ED-780C-4929-86D5-F9174AABD109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{846194DE-FEFE-4806-915D-05D89902034C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{846194DE-FEFE-4806-915D-05D89902034C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{846194DE-FEFE-4806-915D-05D89902034C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C455C71-7FA6-46C4-9366-47CC926A3F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C455C71-7FA6-46C4-9366-47CC926A3F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C455C71-7FA6-46C4-9366-47CC926A3F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C455C71-7FA6-46C4-9366-47CC926A3F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0C30ED-780C-4929-86D5-F9174AABD109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0C30ED-780C-4929-86D5-F9174AABD109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0C30ED-780C-4929-86D5-F9174AABD109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0C30ED-780C-4929-86D5-F9174AABD109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
