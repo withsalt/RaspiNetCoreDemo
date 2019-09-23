@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.Gpio", "1.Gpio\1.Gpio.csproj", "{F83C1A42-CFD3-4450-83B6-DE0484F03C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.Dht22", "2.Dht22\2.Dht22.csproj", "{B481D1EA-C7AC-40C1-8DAE-55FE7B085059}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F83C1A42-CFD3-4450-83B6-DE0484F03C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F83C1A42-CFD3-4450-83B6-DE0484F03C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F83C1A42-CFD3-4450-83B6-DE0484F03C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F83C1A42-CFD3-4450-83B6-DE0484F03C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B481D1EA-C7AC-40C1-8DAE-55FE7B085059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B481D1EA-C7AC-40C1-8DAE-55FE7B085059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B481D1EA-C7AC-40C1-8DAE-55FE7B085059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B481D1EA-C7AC-40C1-8DAE-55FE7B085059}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D65B8A47-8623-4E85-8C92-134F8B4EAA93}
+	EndGlobalSection
+EndGlobal
