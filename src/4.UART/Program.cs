@@ -6,18 +6,26 @@ using System.Threading;
 
 namespace _4.UART
 {
-class Program
-{
-    /// <summary>
-    /// 树莓派串口操作，也可以用于Windows系统（COMx）
-    /// </summary>
-    /// <param name="args"></param>
-    static void Main(string[] args)
+    class Program
+    {
+        /// <summary>
+        /// 树莓派串口操作，也可以用于Windows系统
+        /// 树莓派中portName为ttyAMA0
+        /// Windows系统中portName为COMx，x为串口序号
+        /// 注意：在vs中调试时，默认指定了调试参数为COM3，可以在项目属性->调试选项卡中修改
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
         {
             //注册退出事件
             Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs eventArgs) => { };
-
+            //可以指定第一个参数为portName
             string portName = "ttyAMA0";
+            if (args.Length > 0)
+            {
+                portName = args[0];
+            }
+
             try
             {
                 //查询系统中支持的串口列表
@@ -76,19 +84,24 @@ class Program
             }
         }
 
-    private static void DataReceived(object sender, SerialDataReceivedEventArgs e)
-    {
-        try
+        /// <summary>
+        /// 接收数据事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        static void DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            if (!(sender is SerialPort))
+            try
             {
-                return;
+                if (!(sender is SerialPort))
+                {
+                    return;
+                }
+                SerialPort serial = sender as SerialPort;
+                string read = serial.ReadExisting();
+                Console.WriteLine("-->" + read);
             }
-            SerialPort serial = sender as SerialPort;
-            string read = serial.ReadExisting();
-            Console.WriteLine("-->" + read);
+            catch { }
         }
-        catch { }
     }
-}
 }

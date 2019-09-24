@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "4.UART": {
+      "commandName": "Project",
+      "commandLineArgs": "COM3"
+    }
+  }
+}
