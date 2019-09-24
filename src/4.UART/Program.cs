@@ -9,46 +9,74 @@ namespace _4.UART
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Serial port!");
             //注册退出事件
             Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs eventArgs) => { };
 
-            var ports = SerialPort.GetPortNames();
-            bool isTTY = false;
-            foreach (var prt in ports)
+            string portName = "ttyAMA0";
+            try
             {
-                Console.WriteLine($"Serial name: {prt}");
-                if (prt.Contains("ttyS0"))
+                var ports = SerialPort.GetPortNames();
+                bool isTTY = false;
+                if(ports.Length == 0)
                 {
-                    isTTY = true;
+                    Console.WriteLine($"No serial port allow to use!");
+                    return;
+                }
+                Console.WriteLine("Serial List:");
+                foreach (var prt in ports)
+                {
+                    Console.WriteLine($"  {prt}");
+                    if (prt.Contains(portName))
+                    {
+                        isTTY = true;
+                    }
+                }
+                if (!isTTY)
+                {
+                    Console.WriteLine($"No {portName} serial port!");
+                    return;
+                }
+                using SerialPort serial = new SerialPort($"/dev/{portName}", 115200);
+                serial.DataReceived += DataReceived;
+                serial.Encoding = Encoding.UTF8;
+                serial.Open();
+                if (!serial.IsOpen)
+                {
+                    Console.WriteLine($"Port {portName} cannot open!");
+                    return;
+                }
+                while (true)
+                {
+                    string input = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(input))
+                    {
+                        continue;
+                    }
+                    serial.Write(input);
                 }
             }
-            if (!isTTY)
+            catch(Exception ex)
             {
-                Console.WriteLine("No ttyS0 serial port!");
-                return;
-            }
-            Console.WriteLine("Yes, we have the embedded serial port available, opening it");
-            SerialPort mySer = new SerialPort("/dev/ttyS0", 115200);
-            mySer.DataReceived += DataReceived;
-            mySer.Open();
-            while (true)
-            {
-                byte[] send = Encoding.UTF8.GetBytes("NOW:" + DateTime.Now.ToString());
-                mySer.Write(send, 0, send.Length);
-                Thread.Sleep(1000);
+                Console.WriteLine(ex.Message);
             }
         }
 
         private static void DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            if(sender is SerialPort)
+            try
             {
-                SerialPort serial = sender as SerialPort;
-                string read = serial.ReadLine();
-                Console.WriteLine(read);
+                if (sender is SerialPort)
+                {
+                    SerialPort serial = sender as SerialPort;
+                    string read = serial.ReadLine();
+                    Console.WriteLine(read);
+                }
+                Console.WriteLine($"Received: {e.EventType.ToString()}");
             }
-            Console.WriteLine($"Received: {e.EventType.ToString()}");
+            catch
+            {
+
+            }
         }
     }
 }
