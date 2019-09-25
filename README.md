@@ -4,9 +4,9 @@
 参考教程：[传送门](https://www.quarkbook.com/?p=686 "传送门")
 
 ### 前提条件
-1、树莓派上面安装了.Net Core 3.0 
-2、树莓派可以联网 
-3、有一台安装了VS2019的计算机，并可以连接到树莓派（SSH） 
+1、树莓派上面安装了.Net Core 3.0  
+2、树莓派可以联网  
+3、有一台安装了VS2019的计算机，并可以连接到树莓派（SSH）  
 
 ### 参考文献
 - [张高兴的 .NET Core IoT 入门指南](https://zhangyue.xin/Article/Content/61 "张高兴的 .NET Core IoT 入门指南")
