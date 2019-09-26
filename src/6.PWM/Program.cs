@@ -8,13 +8,25 @@ namespace _6.PWM
     {
         static void Main(string[] args)
         {
+            SoftwarePwmChannel pwmChannel = null;
+
             Console.WriteLine("Hello PWM!");
+            //注册退出事件
+            Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs eventArgs) => 
+            {
+                Console.WriteLine("\nPWM Exit!");
+            };
             try
             {
-                using (var pwmChannel = new SoftwarePwmChannel(17))
+                using (pwmChannel = new SoftwarePwmChannel(17))
                 {
                     pwmChannel.Start();
                     for (double fill = 0.0; fill <= 1.0; fill += 0.01)
+                    {
+                        pwmChannel.DutyCyclePercentage = fill;
+                        Thread.Sleep(300);
+                    }
+                    for (double fill = 1.0; fill >= 0.0; fill -= 0.01)
                     {
                         pwmChannel.DutyCyclePercentage = fill;
                         Thread.Sleep(300);
