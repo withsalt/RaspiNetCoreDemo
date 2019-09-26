@@ -6,7 +6,11 @@ using System.Threading;
 
 namespace _3.I2C
 {
-    class Sht30 : IDisposable
+    /// <summary>
+    /// 来源于 iot.Device.Sht3x
+    /// https://github.com/dotnet/iot/tree/master/src/devices/Sht3x
+    /// </summary>
+    class Sht3x : IDisposable
     {
         private I2cDevice _i2cDevice;
 
@@ -60,12 +64,10 @@ namespace _3.I2C
         /// </summary>
         /// <param name="i2cDevice">The I2C device used for communication.</param>
         /// <param name="resolution">SHT3x Read Resolution</param>
-        public Sht30(I2cDevice i2cDevice, Resolution resolution = Resolution.High)
+        public Sht3x(I2cDevice i2cDevice, Resolution resolution = Resolution.High)
         {
             _i2cDevice = i2cDevice;
-
             Resolution = resolution;
-
             Reset();
         }
 
