@@ -184,9 +184,9 @@ namespace _2.Dht22
                     return null;
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
