@@ -12,7 +12,7 @@ namespace _6.PWM
 
             Console.WriteLine("Hello PWM!");
             //注册退出事件
-            Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs eventArgs) => 
+            Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs eventArgs) =>
             {
                 Console.WriteLine("\nPWM Exit!");
             };
@@ -23,17 +23,17 @@ namespace _6.PWM
                     pwmChannel.Start();
                     for (double fill = 0.0; fill <= 1.0; fill += 0.01)
                     {
-                        pwmChannel.DutyCyclePercentage = fill;
+                        pwmChannel.DutyCycle = fill;
                         Thread.Sleep(300);
                     }
                     for (double fill = 1.0; fill >= 0.0; fill -= 0.01)
                     {
-                        pwmChannel.DutyCyclePercentage = fill;
+                        pwmChannel.DutyCycle = fill;
                         Thread.Sleep(300);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
