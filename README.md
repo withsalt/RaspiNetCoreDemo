@@ -1,10 +1,10 @@
 # RaspiNetCoreDemo
-树莓派.Net Core Iot Demo。在树莓派上面，使用C#操作GPIO，包含基本的GPIO操作示例和常见通讯协议Demo
+树莓派.Net Core Iot Demo。在树莓派上面，使用C#操作GPIO，包含基本的GPIO操作示例和常见通讯协议Demo  
 
 系列教程：[传送门](https://www.quarkbook.com/?p=686 "传送门")
 
 ### 前提条件
-1、树莓派上面安装了.Net 5.0
+1、树莓派上面安装了.Net 5.0  
 2、树莓派可以联网  
 3、有一台安装了VS2019的计算机，并可以连接到树莓派（SSH）  
 
